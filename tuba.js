@@ -33,18 +33,18 @@ var acresBox = document.forms[0].acres;
 /* verify acres text box entry is a positive number */
 function verifyAcres() {
     // testFormCompleteness();
-    var vailidity = true;
+    var validity = true;
     var messageText = "";
     try {
         if (!(acresBox.value > 0)) {
             throw "Please enter a number of acres greater than 0.";
         }
     } catch (message) {
-        vailidity = false;
+        validity = false;
         messageText = message;
         acresBox.value = ""; //Remove invalid entry from input box.
     } finally {
-        acresComplete = vailidity;
+        acresComplete = validity;
         messageElement.innerHTML = messageText;
         messageHeadElement.innerHTML = ""; //Remove any former reccommended heading
         testFormCompleteness();
@@ -57,40 +57,39 @@ function verifyCrops() {
         for (var i = 0; i < 7; i++) {
             if (cropsFieldset.getElementsByTagName("input")[i].checked) {
                 cropsComplete = true;
-                messageElement.innerHTML = ""; 
+                messageElement.innerHTML = "";
                 //clear previous messages or recommendation
                 testFormCompleteness(); 
                 i=8;
             }
+        }
             if (i === 7) {
                 throw "Please select at least one crop.";
             }
-        }
-    } catch (message) {
+        } catch (message) {
         cropsComplete = false;
         messageHeadElement.innerHTML = "";
         // remove any former recommendation heading
-        messageElement.innerHTML = message; // display error 
-        message;
+        messageElement.innerHTML = message; // display error message
     }
-        
 }
+
 
 /* verify months text box entry is between 1 and 12 */
 function verifyMonths() {
     // testFormCompleteness();
-    var vailidity = true
+    var validity = true
     var messageText = "";
     try {
         if (!(monthsBox.value >= 1 && monthsBox.value <= 12)) {
             throw "Please enter a number of months between 1 and 12.";
         }
     } catch (message) {
-        vailidity = false;
+        validity = false;
         messageText = message;
         monthsBox.value = ""; //Remove invalid entry from input box.
     } finally {
-        monthsComplete = vailidity;
+        monthsComplete = validity;
         messageElement.innerHTML = messageText;
         messageHeadElement.innerHTML = ""; //Remove any former reccommended heading
         testFormCompleteness();
