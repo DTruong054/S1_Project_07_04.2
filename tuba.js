@@ -61,6 +61,7 @@ function verifyCrops() {
                 //clear previous messages or recommendation
                 testFormCompleteness(); 
                 i=8;
+                //Added a cloing bracket.
             }
         }
             if (i === 7) {
